@@ -2,8 +2,7 @@ const fs = require('fs');
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-import { searchForMovie } from '../lib/apiCalls';
-//var url = require('url');
+const { searchForMovie } = require('../lib/apiCalls');
 
 router.get('/', (req, res) => {
   res.send('Welcome to <> your movies api.');

@@ -2,7 +2,7 @@ const fs = require('fs');
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-import { searchForStar } from '../lib/apiCalls';
+const { searchForStar } = require('../lib/apiCalls');
 //var url = require('url');
 
 router.get('/', (req, res) => {
@@ -17,7 +17,7 @@ router.get('/searchByName/:name_encoded', async (req, res, next) => {
     const star = response.results[0];
     const { id, name, profile_path } = star;
     const starId = 's_' + id;
-    const starInfo = { starId, name, profile_path } ;
+    const starInfo = { starId, name, profile_path };
 
     fs.writeFileSync(
       path.join(__dirname, `../data/stars/${starId}.json`),
