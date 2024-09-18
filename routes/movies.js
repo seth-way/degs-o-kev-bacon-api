@@ -13,26 +13,22 @@ router.get(
   '/searchByTitle/:title_encoded',
   asyncHandler(async (req, res) => {
     var { title_encoded } = req.params;
-    try {
-      const response = await searchForMovie(title_encoded);
-      if (!response.ok || !response?.results[0]) next(response);
-      const movie = response.results[0];
+    const response = await searchForMovie(title_encoded);
+    if (!response.ok || !response?.results[0]) next(response);
+    const movie = response.results[0];
 
-      var { id, title, poster_path } = movie;
-      id = 'm_' + id;
-      const img = poster_path;
-      const text = title;
+    var { id, title, poster_path } = movie;
+    id = 'm_' + id;
+    const img = poster_path;
+    const text = title;
 
-      const movieInfo = { id, img, text };
-      fs.writeFileSync(
-        path.join(__dirname, `../data/movies/${id}.json`),
-        JSON.stringify(movieInfo),
-        { flag: 'w' }
-      );
-      res.send(movieInfo);
-    } catch (err) {
-      res.send(err);
-    }
+    const movieInfo = { id, img, text };
+    fs.writeFileSync(
+      path.join(__dirname, `../data/movies/${id}.json`),
+      JSON.stringify(movieInfo),
+      { flag: 'w' }
+    );
+    res.send(movieInfo);
   })
 );
 
