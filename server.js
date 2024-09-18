@@ -1,13 +1,13 @@
 console.log('PROCESS . ENV . NODE_ENV <><><><>', process.env.NODE_ENV);
-// if (process.env.NODE_ENV !== 'production') {
-//   require('dotenv').config();
-// }
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 const express = require('express');
-//const apiRouter = require('./routes/index.js');
+const apiRouter = require('./routes/index.js');
 const cors = require('cors');
-//const { logErrors, clientErrorHandler, errorHandler } = require('./error.js');
+const { logErrors, clientErrorHandler, errorHandler } = require('./error.js');
 
-//const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -16,17 +16,17 @@ app.locals = {
 };
 
 app.use(cors());
-//app.use(express.urlencoded({ extended: false }));
-//app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('Express on Vercel');
 });
 
-//app.use('/api', apiRouter);
-// app.use(logErrors);
-// app.use(clientErrorHandler);
-// app.use(errorHandler);
+app.use('/api', apiRouter);
+app.use(logErrors);
+app.use(clientErrorHandler);
+app.use(errorHandler);
 
 app.listen(3000, () => console.log('server ready on port 3000'));
 
