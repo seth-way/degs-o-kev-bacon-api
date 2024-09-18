@@ -1,4 +1,6 @@
-require('dotenv').config({ path: '.env.local' });
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 const express = require('express');
 const apiRouter = require('./routes/index.js');
 const cors = require('cors');
