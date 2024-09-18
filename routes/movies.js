@@ -1,4 +1,4 @@
-const fs = require('fs');
+//const fs = require('fs');
 const express = require('express');
 const router = express.Router();
 const path = require('path');
@@ -23,11 +23,11 @@ router.get('/searchByTitle/:title_encoded', (req, res, next) => {
   const text = title;
 
   const movieInfo = { id, img, text };
-  fs.writeFileSync(
-    path.join(__dirname, `../data/movies/${id}.json`),
-    JSON.stringify(movieInfo),
-    { flag: 'w' }
-  );
+  // fs.writeFileSync(
+  //   path.join(__dirname, `../data/movies/${id}.json`),
+  //   JSON.stringify(movieInfo),
+  //   { flag: 'w' }
+  // );
   res.send(movieInfo);
 });
 
