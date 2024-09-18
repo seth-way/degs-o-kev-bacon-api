@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   res.send('Welcome to <> your movies api.');
 });
 
-router.get('/searchByTitle/:title_encoded', async (req, res, next) => {
+router.get('/searchByTitle/:title_encoded', async (req, res) => {
   var { title_encoded } = req.params;
   try {
     const response = await searchForMovie(title_encoded);
@@ -28,10 +28,10 @@ router.get('/searchByTitle/:title_encoded', async (req, res, next) => {
     );
     res.send(movieInfo);
   } catch (err) {
-    next(err);
+    res.status(err.status || 500).send(err);
   }
 });
 
-router.get('/:movieId', (req, res, next) => {});
+router.get('/:movieId', (req, res) => {});
 
 module.exports = router;

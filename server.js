@@ -7,11 +7,12 @@ const { logErrors, clientErrorHandler, errorHandler } = require('./error.js');
 
 const PORT = process.env.PORT || 3001;
 
+const app = express();
+
 app.locals = {
   title: '6 Degs-O-Bacon API',
-}
+};
 
-const app = express();
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -21,9 +22,9 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api', apiRouter);
-app.use(logErrors);
-app.use(clientErrorHandler);
-app.use(errorHandler);
+// app.use(logErrors);
+// app.use(clientErrorHandler);
+// app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`${app.locals.title} is running on <><><> port ${PORT}`);

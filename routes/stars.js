@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   res.send('Welcome to <> your star api.');
 });
 
-router.get('/searchByName/:name_encoded', async (req, res, next) => {
+router.get('/searchByName/:name_encoded', async (req, res) => {
   var { name_encoded } = req.params;
   try {
     const response = await searchForStar(name_encoded);
@@ -28,10 +28,10 @@ router.get('/searchByName/:name_encoded', async (req, res, next) => {
     );
     res.send(starInfo);
   } catch (err) {
-    next(err);
+    res.status(err.status || 500).send(err);
   }
 });
 
-router.get('/:starId', (req, res, next) => {});
+router.get('/:starId', (req, res) => {});
 
 module.exports = router;

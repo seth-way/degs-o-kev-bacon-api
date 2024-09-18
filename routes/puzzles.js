@@ -16,7 +16,7 @@ async function readFiles(filePaths) {
   return fileContents; // This will be an array of the contents of the files
 }
 
-router.get('/', async (req, res, next) => {
+router.get('/', async (req, res => {
   try {
     const puzzleFileNames = fs.readdirSync(
       path.join(__dirname, '../data/puzzles')
@@ -30,11 +30,11 @@ router.get('/', async (req, res, next) => {
 
     res.send(contents.map(json => JSON.parse(json)));
   } catch (err) {
-    next(err);
+    res.status(err.status || 500).send(err);
   }
-});
+}));
 
-router.get('/searchByTitle/:title_encoded', async (req, res, next) => {
+router.get('/searchByTitle/:title_encoded', async (req, res) => {
   var { title_encoded } = req.params;
   try {
     const response = await searchForMovie(title_encoded);
@@ -52,11 +52,11 @@ router.get('/searchByTitle/:title_encoded', async (req, res, next) => {
     );
     res.send(movieInfo);
   } catch (err) {
-    next(err);
+    res.status(err.status || 500).send(err);
   }
 });
 
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', async (req, res) => {
   var { id } = req.params;
   try {
     const puzzle = fs.readFileSync(
@@ -64,7 +64,7 @@ router.get('/:id', async (req, res, next) => {
     );
     res.send(puzzle);
   } catch (err) {
-    next(err);
+    res.status(err.status || 500).send(err);
   }
 });
 
