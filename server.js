@@ -28,5 +28,3 @@ app.use('/api', apiRouter);
 app.listen(PORT, () => {
   console.log(`${app.locals.title} <><><> is running on <><><> port ${PORT}`);
 });
-
-module.exports = app;
