@@ -3,7 +3,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 const express = require('express');
-const apiRouter = require('./routes/index.js');
+//const apiRouter = require('./routes/index.js');
 const cors = require('cors');
 //const { logErrors, clientErrorHandler, errorHandler } = require('./error.js');
 
