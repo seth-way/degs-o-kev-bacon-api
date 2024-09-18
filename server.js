@@ -4,7 +4,7 @@ console.log('PROCESS . ENV . NODE_ENV <><><><>', process.env.NODE_ENV);
 // }
 const express = require('express');
 //const apiRouter = require('./routes/index.js');
-//const cors = require('cors');
+const cors = require('cors');
 //const { logErrors, clientErrorHandler, errorHandler } = require('./error.js');
 
 //const PORT = process.env.PORT || 3000;
