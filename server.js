@@ -11,9 +11,9 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
-app.locals = {
-  title: '6 Degs-O-Bacon API',
-};
+// app.locals = {
+//   title: '6 Degs-O-Bacon API',
+// };
 
 app.use(cors());
 //app.use(express.urlencoded({ extended: false }));
