@@ -31,6 +31,6 @@ router.get('/searchByTitle/:title_encoded', (req, res, next) => {
   res.send(movieInfo);
 });
 
-router.get('/:movieId', (req, res) => {});
+//router.get('/:movieId', (req, res) => {});
 
 module.exports = router;
