@@ -1,6 +1,7 @@
 //const fs = require('fs');
 const express = require('express');
 const router = express.Router();
+console.log('MOUNT PATH <><>', router.mountpath);
 const path = require('path');
 const { searchForMovie } = require('./apiCalls.js');
 
