@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "API for 6 degrees o kev bacon app.",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
