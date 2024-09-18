@@ -1,8 +1,8 @@
-//const fs = require('fs');
+const fs = require('fs');
 const express = require('express');
 const router = express.Router();
-//const path = require('path');
-//const { searchForMovie } = require('../lib/apiCalls');
+const path = require('path');
+const { searchForMovie } = require('../lib/apiCalls');
 
 router.get('/', (req, res) => {
   res.send('Welcome to <> your movies api.');
