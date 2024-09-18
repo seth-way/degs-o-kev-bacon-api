@@ -2,7 +2,7 @@ const fs = require('fs');
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const { searchForStar } = require('../lib/apiCalls');
+const { searchForStar } = require('./apiCalls');
 
 router.get('/', (req, res) => {
   res.send('Welcome to <> your star api.');
