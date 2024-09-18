@@ -15,12 +15,14 @@ router.get('/searchByTitle/:title_encoded', async (req, res, next) => {
     if (!response.ok || !response?.results[0]) next(response);
     const movie = response.results[0];
 
-    const { id, backdrop_path, title, poster_path } = movie;
-    const movieId = 'm_' + id;
+    var { id, backdrop_path, title, poster_path } = movie;
+    id = 'm_' + id;
+    const img = poster_path;
+    const text = title;
 
-    const movieInfo = { movieId, backdrop_path, title, poster_path };
+    const movieInfo = { id, img, text };
     fs.writeFileSync(
-      path.join(__dirname, `../data/movies/${movieId}.json`),
+      path.join(__dirname, `../data/movies/${id}.json`),
       JSON.stringify(movieInfo),
       { flag: 'w' }
     );

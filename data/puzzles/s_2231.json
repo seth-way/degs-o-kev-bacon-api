@@ -1,0 +1,72 @@
+{
+  "hub": {
+    "id": "s_2231",
+    "text": "Samuel L. Jackson",
+    "img": "/AiAYAqwpM5xmiFrAIeQvUXDCVvo.jpg"
+  },
+  "wheel": "s_139-m_393-s_147-m_273248-s_6905-m_68718-s_27319-m_16869-s_287-m_319-s_4690-m_680",
+  "stars": {
+    "s_139": {
+      "id": "s_139",
+      "text": "Uma Thurman",
+      "img": "/lg04iEqT6TC40H1jz10Z99OFMXx.jpg"
+    },
+    "s_147": {
+      "id": "s_147",
+      "text": "Michael Madsen",
+      "img": "/69cqjkTNKI1muAfnvorfmWNVgIe.jpg"
+    },
+    "s_287": {
+      "id": "s_287",
+      "text": "Brad Pitt",
+      "img": "/ajNaPmXVVMJFg9GWmu6MJzTaXdV.jpg"
+    },
+    "s_4690": {
+      "id": "s_4690",
+      "text": "Christopher Walken",
+      "img": "/ApgDL7nudR9T2GpjCG4vESgymO2.jpg"
+    },
+    "s_6905": {
+      "id": "s_6905",
+      "text": "Bruce Dern",
+      "img": "/oD4nU9p9kCrnrnPP02uPHONMKYc.jpg"
+    },
+    "s_27319": {
+      "id": "s_27319",
+      "text": "Christoph Waltz",
+      "img": "/hrSWzM1IGbj9OfohFPTX0HcLecz.jpg"
+    }
+  },
+  "movies": {
+    "m_319": {
+      "id": "m_319",
+      "text": "True Romance",
+      "img": "/39lXk6ud6KiJgGbbWI2PUKS7y2.jpg"
+    },
+    "m_393": {
+      "id": "m_393",
+      "text": "Kill Bill: Vol. 2",
+      "img": "/2yhg0mZQMhDyvUQ4rG1IZ4oIA8L.jpg"
+    },
+    "m_680": {
+      "id": "m_680",
+      "text": "Pulp Fiction",
+      "img": "/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg"
+    },
+    "m_16869": {
+      "id": "m_16869",
+      "text": "Inglourious Basterds",
+      "img": "/7sfbEnaARXDDhKm0CZ7D7uc2sbo.jpg"
+    },
+    "m_68718": {
+      "id": "m_68718",
+      "text": "Django Unchained",
+      "img": "/7oWY8VDWW7thTzWh3OKYRkWUlD5.jpg"
+    },
+    "m_273248": {
+      "id": "m_273248",
+      "text": "The Hateful Eight",
+      "img": "/jIywvdPjia2t3eKYbjVTcwBQlG8.jpg"
+    }
+  }
+}

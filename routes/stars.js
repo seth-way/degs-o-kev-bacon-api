@@ -15,12 +15,14 @@ router.get('/searchByName/:name_encoded', async (req, res, next) => {
     const response = await searchForStar(name_encoded);
     if (!response.ok || !response?.results[0]) next(response);
     const star = response.results[0];
-    const { id, name, profile_path } = star;
-    const starId = 's_' + id;
-    const starInfo = { starId, name, profile_path };
+    var { id, name, profile_path } = star;
+    id = 's_' + id;
+    const text = name;
+    const img = profile_path;
+    const starInfo = { id, img, text };
 
     fs.writeFileSync(
-      path.join(__dirname, `../data/stars/${starId}.json`),
+      path.join(__dirname, `../data/stars/${id}.json`),
       JSON.stringify(starInfo),
       { flag: 'w' }
     );
