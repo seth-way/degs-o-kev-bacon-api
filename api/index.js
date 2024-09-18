@@ -4,10 +4,10 @@ console.log('PROCESS . ENV . NODE_ENV <><><><>', process.env.NODE_ENV);
 // }
 const express = require('express');
 //const apiRouter = require('./routes/index.js');
-const cors = require('cors');
+//const cors = require('cors');
 //const { logErrors, clientErrorHandler, errorHandler } = require('./error.js');
 
-const PORT = process.env.PORT || 3000;
+//const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -17,10 +17,10 @@ app.locals = {
 
 app.use(cors());
 //app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+//app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Express server working on Vercel');
+  res.send('Express on Vercel');
 });
 
 //app.use('/api', apiRouter);
@@ -28,8 +28,6 @@ app.get('/', (req, res) => {
 // app.use(clientErrorHandler);
 // app.use(errorHandler);
 
-app.listen(PORT, () => {
-  console.log(`${app.locals.title} <><><> is running on <><><> port ${PORT}`);
-});
+app.listen(3000, () => console.log('server ready on port 3000'));
 
 module.exports = app;
