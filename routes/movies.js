@@ -13,7 +13,7 @@ router.get('/searchByTitle/:title_encoded', (req, res, next) => {
   const movie = searchForMovie(title_encoded)
     .then(res => {
       if (!res.ok || !res?.results[0]) next(res);
-      return response.results[0];
+      return res.results[0];
     })
     .catch(err => next(err));
 
