@@ -16,7 +16,7 @@ app.locals = {
 };
 
 app.use(cors());
-app.use(express.urlencoded({ extended: false }));
+//app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
@@ -28,6 +28,6 @@ app.use(logErrors);
 app.use(clientErrorHandler);
 app.use(errorHandler);
 
-app.listen(3000, () => console.log('server ready on port 3000'));
+app.listen(PORT, () => console.log(`server ready on port ${PORT}`));
 
 module.exports = app;

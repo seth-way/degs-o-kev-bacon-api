@@ -11,7 +11,7 @@ function clientErrorHandler(err, req, res, next) {
   }
 }
 
-function errorHandler(err, req, res, next) {
+function errorHandler(err, req, res) {
   res.status(500);
   res.render('error from error handler', { error: err });
 }
