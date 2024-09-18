@@ -2,7 +2,7 @@ require('dotenv').config({ path: '.env.local' });
 const express = require('express');
 const apiRouter = require('./routes/index.js');
 const cors = require('cors');
-const { logErrors, clientErrorHandler, errorHandler } = require('./error.js');
+//const { logErrors, clientErrorHandler, errorHandler } = require('./error.js');
 
 const PORT = process.env.PORT || 3001;
 
@@ -13,7 +13,7 @@ app.locals = {
 };
 
 app.use(cors());
-app.use(express.urlencoded({ extended: false }));
+//app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
@@ -28,3 +28,5 @@ app.use('/api', apiRouter);
 app.listen(PORT, () => {
   console.log(`${app.locals.title} <><><> is running on <><><> port ${PORT}`);
 });
+
+module.exports = app;
