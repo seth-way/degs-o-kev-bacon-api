@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
 router.get(
   '/searchByTitle/:title_encoded',
-  asyncHandler(async (req, res) => {
+  asyncHandler(async (req, res, next) => {
     var { title_encoded } = req.params;
     const response = await searchForMovie(title_encoded);
     if (!response.ok || !response?.results[0]) next(response);
