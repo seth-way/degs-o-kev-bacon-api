@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
 router.get(
   '/searchByTitle/:title_encoded',
-  asyncHandler(async (req, res, next) => {
+  asyncHandler(async (req, res) => {
     var { title_encoded } = req.params;
     try {
       const response = await searchForMovie(title_encoded);
@@ -31,7 +31,7 @@ router.get(
       );
       res.send(movieInfo);
     } catch (err) {
-      next(err);
+      res.send(err);
     }
   })
 );
