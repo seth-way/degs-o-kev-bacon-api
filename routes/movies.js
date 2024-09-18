@@ -3,7 +3,9 @@ const express = require('express');
 const router = express.Router();
 console.log('MOUNT PATH <><>', router.mountpath);
 const path = require('path');
-const { searchForMovie } = require('./apiCalls.js');
+//router.use(logger());
+router.use(express.static(path.join(__dirname, 'public')));
+const { searchForMovie } = require('../public/lib/apiCalls.js');
 
 router.get('/', (req, res) => {
   res.send('Welcome to <> your movies api.');
