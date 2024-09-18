@@ -3,7 +3,7 @@
 //   require('dotenv').config();
 // }
 const express = require('express');
-//const apiRouter = require('./routes/index.js');
+const apiRouter = require('./routes/index.js');
 const cors = require('cors');
 //const { logErrors, clientErrorHandler, errorHandler } = require('./error.js');
 
@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
   res.send('Express on Vercel');
 });
 
-//app.use('/api', apiRouter);
+app.use('/api', apiRouter);
 // app.use(logErrors);
 // app.use(clientErrorHandler);
 // app.use(errorHandler);
