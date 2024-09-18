@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
   res.send('Express server working on Vercel');
 });
 
-app.use('/api', apiRouter);
+//app.use('/api', apiRouter);
 // app.use(logErrors);
 // app.use(clientErrorHandler);
 // app.use(errorHandler);
