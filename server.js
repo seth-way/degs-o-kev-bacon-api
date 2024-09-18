@@ -19,7 +19,7 @@ app.use(logErrors);
 app.use(clientErrorHandler);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
   console.log(`Server is running on <><><> port ${PORT}`);
 });
