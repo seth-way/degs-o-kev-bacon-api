@@ -1,10 +1,10 @@
 {
   "name": "degs-o-kev-bacon-api",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "api/index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node api/index.js",
+    "dev": "nodemon api/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,12 +12,17 @@
   "license": "ISC",
   "description": "API for 6 degrees-O-Kev bacon app.",
   "dependencies": {
+    "body-parser": "^1.20.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-async-handler": "^1.2.0",
+    "morgan": "^1.10.0",
     "nodemon": "^3.1.5",
     "path": "^0.12.7",
     "url": "^0.11.4"
+  },
+  "devDependencies": {
+    "jshint": "^2.13.6"
   }
 }

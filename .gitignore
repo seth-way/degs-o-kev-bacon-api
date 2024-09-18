@@ -18,3 +18,5 @@ yarn-error.log*
 
 # Coverage directories used by testing tools
 coverage/
+.vercel
+.env*.local

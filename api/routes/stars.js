@@ -2,7 +2,7 @@ const fs = require('fs');
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const { searchForStar } = require('../public/lib/apiCalls');
+const { searchForStar } = require('../lib/apiCalls');
 
 router.get('/', (req, res) => {
   res.send('Welcome to <> your star api.');
@@ -11,9 +11,7 @@ router.get('/', (req, res) => {
 router.get('/searchByName/:name_encoded', async (req, res, next) => {
   var { name_encoded } = req.params;
   try {
-    const response = await searchForStar(name_encoded);
-    if (!response.ok || !response?.results[0]) next(response);
-    const star = response.results[0];
+    const star = await searchForStar(name_encoded);
     var { id, name, profile_path } = star;
     id = 's_' + id;
     const text = name;
@@ -25,6 +23,7 @@ router.get('/searchByName/:name_encoded', async (req, res, next) => {
       JSON.stringify(starInfo),
       { flag: 'w' }
     );
+
     res.send(starInfo);
   } catch (err) {
     next(err);
