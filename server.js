@@ -5,7 +5,7 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express');
 const apiRouter = require('./routes/index.js');
 const cors = require('cors');
-const { logErrors, clientErrorHandler, errorHandler } = require('./error.js');
+//const { logErrors, clientErrorHandler, errorHandler } = require('./error.js');
 
 const PORT = process.env.PORT || 3000;
 
@@ -24,9 +24,9 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api', apiRouter);
-app.use(logErrors);
-app.use(clientErrorHandler);
-app.use(errorHandler);
+// app.use(logErrors);
+// app.use(clientErrorHandler);
+// app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`server ready on port ${PORT}`));
 
