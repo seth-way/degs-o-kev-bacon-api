@@ -5,6 +5,8 @@ const cors = require('cors');
 const path = require('path');
 const { logErrors, clientErrorHandler, errorHandler } = require('./error.js');
 
+const PORT = process.env.PORT || 3000;
+
 const app = express();
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
@@ -19,8 +21,7 @@ app.use(logErrors);
 app.use(clientErrorHandler);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 3000;
-const server = app.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Server is running on <><><> port ${PORT}`);
 });
 
