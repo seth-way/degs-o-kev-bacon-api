@@ -35,9 +35,7 @@ router.get('/', (req, res) => {
 router.get('/searchByTitle/:title_encoded', async (req, res, next) => {
   var { title_encoded } = req.params;
   try {
-    console.log('boutta search for dat movieeeeeeeee......');
     const movie = await searchForMovie(title_encoded);
-    console.log('movie:::::', movie);
     var { id, title, poster_path } = movie;
     id = 'm_' + id;
     const img = poster_path;

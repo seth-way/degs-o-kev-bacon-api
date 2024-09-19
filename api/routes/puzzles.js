@@ -46,13 +46,25 @@ router.get('/createPuzzle/:puzzleKey', async (req, res, next) => {
 
     const puzzle = { stars: {}, movies: {}, hub, wheel };
 
-    for (const id of wheel.split('-')) {
-      const type = id[0] === 'm' ? 'movies' : 'stars';
-      const data = await fs.readFileSync(
-        path.join(__dirname, `../data/${type}/${id}.json`)
-      );
-      puzzle[type][id] = data;
-    }
+    const paths = wheel.split('-').map(key => {
+      const type = key[0] === 'm' ? 'movies' : 'stars';
+      return path.join(__dirname, `../data/${type}/${key}.json`);
+    });
+
+    const contents = await readFiles(paths);
+    const promises = await contents.map(async string => {
+      return await JSON.parse(string);
+    });
+    const data = await Promise.all(promises);
+    data.forEach(item => {
+      const type = item.id[0] === 'm' ? 'movies' : 'stars';
+      puzzle[type][item.id] = item;
+    });
+    fs.writeFileSync(
+      path.join(__dirname, `../data/puzzles/${hubKey}.json`),
+      JSON.stringify(puzzle),
+      { flag: 'w' }
+    );
     console.log('hub <>', hub);
     res.send(puzzle);
   } catch (err) {
