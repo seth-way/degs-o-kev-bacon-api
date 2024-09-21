@@ -12,7 +12,6 @@ router.get('/searchByTitle/:title_encoded', async (req, res, next) => {
   var { title_encoded } = req.params;
   try {
     const movie = await searchForMovie(title_encoded);
-
     var { id, title, poster_path } = movie;
     id = 'm_' + id;
     const img = poster_path;
