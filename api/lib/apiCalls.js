@@ -22,6 +22,8 @@ async function searchForMovie(title) {
 }
 
 async function searchForStar(star) {
+  console.log('searching for star....');
+  console.log('token', ACCESS_TOKEN);
   const url = encodeURI(baseUrl + 'search/person?query=' + star + urlEndPath);
   try {
     const data = await fetch(url, options);
