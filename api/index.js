@@ -1,7 +1,7 @@
-// // console.log('PROCESS . ENV . NODE_ENV <><><><>', process.env.NODE_ENV);
-// if (process.env.NODE_ENV !== 'production') {
-//   require('dotenv').config();
-// }
+console.log('PROCESS . ENV . NODE_ENV <><><><>', process.env.NODE_ENV);
+if (process.env.NODE_ENV !== 'production') {
+	require('dotenv').config();
+}
 const express = require('express');
 const bodyParser = require('body-parser');
 const apiRouter = require('./routes/index.js');
@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 app.locals = {
-  title: '6 Degs-O-Bacon API',
+	title: '6 Degs-O-Bacon API'
 };
 
 app.use(cors());
@@ -23,14 +23,14 @@ app.use(logger('combined'));
 // app.use(express.static(path.join(__dirname, 'public')));
 
 const setContext = (req, res, next) => {
-  if (!req.context) req.context = {};
-  next();
+	if (!req.context) req.context = {};
+	next();
 };
 
 app.use(setContext);
 
 app.get('/', (req, res) => {
-  res.send('Express on Vercel');
+	res.send('Express on Vercel');
 });
 
 app.use('/api', apiRouter);
